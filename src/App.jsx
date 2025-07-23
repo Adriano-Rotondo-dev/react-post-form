@@ -1,78 +1,35 @@
 import { useState } from "react";
-import axios from "axios";
+// import axios from "axios";
+
+import FormPost from "./components/FormPost";
 
 function App() {
+  const [formSubmit, setFormSubmit] = useState({
+    author: "",
+    title: "",
+    post: "",
+    public: false,
+  });
+  function handleFormSubmit(e) {
+    const key = e.target.name;
+    const val =
+      e.target.type === "checkbox" ? e.target.checked : e.target.value;
+    console.log(e.target.value);
+
+    setFormSubmit({
+      ...formSubmit,
+      [key]: val,
+    });
+  }
+
   return (
     <>
       {/* container  */}
       <div className="container mb-3">
-        {/* card section  */}
-        <div className="card m-3">
-          {/* start of imput section  */}
-          <div className="p-3">
-            <label htmlFor="" className="form-label">
-              Author
-            </label>
-            <input
-              type="text"
-              className="form-control"
-              name="author"
-              id="author"
-              aria-describedby="helpId"
-              placeholder="Type here..."
-            />
-            <small id="helpId" className="form-text text-muted">
-              Type here the author's name
-            </small>
-          </div>
-          <div className="p-3">
-            <label htmlFor="" className="form-label">
-              Title
-            </label>
-            <input
-              type="text"
-              className="form-control"
-              name="title"
-              id="title"
-              aria-describedby="helpId"
-              placeholder="Type here..."
-            />
-            <small id="helpId" className="form-text text-muted">
-              Type here the post's title
-            </small>
-          </div>
-          <div className="p-3">
-            <label htmlFor="" className="form-label">
-              Content
-            </label>
-            <input
-              type="text"
-              className="form-control"
-              name="post"
-              id="post"
-              aria-describedby="helpId"
-              placeholder="Type here..."
-            />
-            <small id="helpId" className="form-text text-muted">
-              Type here your post
-            </small>
-          </div>
-          {/* end of imput section  */}
-          {/* checkbox section  */}
-          <div class="form-check m-3">
-            <input
-              class="form-check-input"
-              type="checkbox"
-              value=""
-              id=""
-              checked
-            />
-            <label class="form-check-label" for="">
-              Is your post public?
-            </label>
-          </div>
-        </div>
-        {/* closing tag for card */}
+        <span className="d-flex flex-column align-items-center">
+          <h1>Write your first BlogPost!</h1>
+        </span>
+        <FormPost formSubmit={formSubmit} setFormSubmit={setFormSubmit} />
       </div>
       {/* closing tag for container */}
     </>
