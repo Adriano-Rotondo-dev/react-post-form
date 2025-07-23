@@ -45,16 +45,16 @@ export default function FormPost({
           </small>
         </div>
         <div className="p-3">
-          <label htmlFor="post" className="form-label">
+          <label htmlFor="body" className="form-label">
             Post Content
           </label>
           <textarea
             className="form-control "
-            id="post"
-            name="post"
+            id="body"
+            name="body"
             rows="3"
             placeholder="Type here..."
-            value={formPost.post}
+            value={formPost.body}
             onChange={handleFormPostChange}
           ></textarea>
         </div>

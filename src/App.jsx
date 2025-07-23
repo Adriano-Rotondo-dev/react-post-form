@@ -1,4 +1,4 @@
-import { useState, useEffect } from "react";
+import { useState } from "react";
 import axios from "axios";
 
 import FormPost from "./components/FormPost";
@@ -7,7 +7,7 @@ function App() {
   const [formPost, setFormPost] = useState({
     author: "",
     title: "",
-    post: "",
+    body: "",
     public: false,
   });
 
@@ -25,13 +25,11 @@ function App() {
   function handleSubmit(e) {
     e.preventDefault();
     console.log(formPost);
+    axios
+      .post(" https://67c5b4f3351c081993fb1ab6.mockapi.io/api/posts", formPost)
+      .then((res) => console.log("Hai inviato i file all'endpoint", res.data))
+      .catch((err) => console.error(err));
   }
-  // useEffect(() => {
-  //   axios
-  //     .get("")
-  //     .then((res) => setFormPost(res.data))
-  //     .catch((err) => console.error(err));
-  // }, []);
 
   return (
     <>
