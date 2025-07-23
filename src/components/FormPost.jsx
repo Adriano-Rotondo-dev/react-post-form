@@ -1,6 +1,10 @@
-export default function FormPost({ formPost, handleFormPostChange }) {
+export default function FormPost({
+  formPost,
+  handleFormPostChange,
+  handleSubmit,
+}) {
   return (
-    <>
+    <form onSubmit={handleSubmit}>
       {/* card section  */}
       <div className="card m-3 p-3">
         {/* start of imput section  */}
@@ -79,6 +83,6 @@ export default function FormPost({ formPost, handleFormPostChange }) {
         </div>
         {/* closing tag for btn */}
       </div>
-    </>
+    </form>
   );
 }

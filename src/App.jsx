@@ -12,7 +12,6 @@ function App() {
   });
 
   function handleFormPostChange(e) {
-    e.preventDefault();
     const key = e.target.name;
     const val =
       e.target.type === "checkbox" ? e.target.checked : e.target.value;
@@ -23,6 +22,10 @@ function App() {
     });
   }
 
+  function handleSubmit(e) {
+    e.preventDefault();
+    console.log(formPost);
+  }
   // useEffect(() => {
   //   axios
   //     .get("")
@@ -37,7 +40,11 @@ function App() {
         <span className="d-flex flex-column align-items-center">
           <h1>Write your first BlogPost!</h1>
         </span>
-        <FormPost formPost={formPost} setFormPost={setFormPost} />
+        <FormPost
+          formPost={formPost}
+          handleFormPostChange={handleFormPostChange}
+          handleSubmit={handleSubmit}
+        />
       </div>
       {/* closing tag for container */}
     </>
