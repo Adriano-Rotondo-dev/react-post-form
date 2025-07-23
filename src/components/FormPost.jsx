@@ -1,4 +1,4 @@
-export default function FormPost({ formPost, setFormPost }) {
+export default function FormPost({ formPost, handleFormPostChange }) {
   return (
     <>
       {/* card section  */}
@@ -16,9 +16,7 @@ export default function FormPost({ formPost, setFormPost }) {
             aria-describedby="helpId"
             placeholder="Type here..."
             value={formPost.author}
-            onChange={(e) =>
-              setFormPost({ ...formPost, author: e.target.value })
-            }
+            onChange={handleFormPostChange}
           />
           <small id="helpId" className="form-text text-muted">
             Type here the author's name
@@ -36,9 +34,7 @@ export default function FormPost({ formPost, setFormPost }) {
             aria-describedby="helpId"
             placeholder="Type here..."
             value={formPost.title}
-            onChange={(e) =>
-              setFormPost({ ...formPost, title: e.target.value })
-            }
+            onChange={handleFormPostChange}
           />
           <small id="helpId" className="form-text text-muted">
             Type here the post's title
@@ -55,7 +51,7 @@ export default function FormPost({ formPost, setFormPost }) {
             rows="3"
             placeholder="Type here..."
             value={formPost.post}
-            onChange={(e) => setFormPost({ ...formPost, post: e.target.value })}
+            onChange={handleFormPostChange}
           ></textarea>
         </div>
         {/* end of imput section  */}
@@ -64,8 +60,10 @@ export default function FormPost({ formPost, setFormPost }) {
           <input
             className="form-check-input"
             type="checkbox"
-            value="public"
             id="public"
+            name="public"
+            checked={formPost.public}
+            onChange={handleFormPostChange}
           />
           <label className="form-check-label" htmlFor="public">
             Should your post be public?

@@ -23,7 +23,13 @@ function App() {
     });
   }
 
-  console.log(formPost);
+  // useEffect(() => {
+  //   axios
+  //     .get("")
+  //     .then((res) => setFormPost(res.data))
+  //     .catch((err) => console.error(err));
+  // }, []);
+
   return (
     <>
       {/* container  */}
