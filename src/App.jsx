@@ -1,27 +1,29 @@
-import { useState } from "react";
-// import axios from "axios";
+import { useState, useEffect } from "react";
+import axios from "axios";
 
 import FormPost from "./components/FormPost";
 
 function App() {
-  const [formSubmit, setFormSubmit] = useState({
+  const [formPost, setFormPost] = useState({
     author: "",
     title: "",
     post: "",
     public: false,
   });
-  function handleFormSubmit(e) {
+
+  function handleFormPostChange(e) {
+    e.preventDefault();
     const key = e.target.name;
     const val =
       e.target.type === "checkbox" ? e.target.checked : e.target.value;
-    console.log(e.target.value);
 
-    setFormSubmit({
-      ...formSubmit,
+    setFormPost({
+      ...formPost,
       [key]: val,
     });
   }
 
+  console.log(formPost);
   return (
     <>
       {/* container  */}
@@ -29,7 +31,7 @@ function App() {
         <span className="d-flex flex-column align-items-center">
           <h1>Write your first BlogPost!</h1>
         </span>
-        <FormPost formSubmit={formSubmit} setFormSubmit={setFormSubmit} />
+        <FormPost formPost={formPost} setFormPost={setFormPost} />
       </div>
       {/* closing tag for container */}
     </>

@@ -1,4 +1,4 @@
-export default function FormPost({ formSubmit, setFormSubmit }) {
+export default function FormPost({ formPost, setFormPost }) {
   return (
     <>
       {/* card section  */}
@@ -15,9 +15,9 @@ export default function FormPost({ formSubmit, setFormSubmit }) {
             id="author"
             aria-describedby="helpId"
             placeholder="Type here..."
-            value={formSubmit.author}
+            value={formPost.author}
             onChange={(e) =>
-              setFormSubmit({ ...formSubmit, author: e.target.value })
+              setFormPost({ ...formPost, author: e.target.value })
             }
           />
           <small id="helpId" className="form-text text-muted">
@@ -35,9 +35,9 @@ export default function FormPost({ formSubmit, setFormSubmit }) {
             id="title"
             aria-describedby="helpId"
             placeholder="Type here..."
-            value={formSubmit.title}
+            value={formPost.title}
             onChange={(e) =>
-              setFormSubmit({ ...formSubmit, title: e.target.value })
+              setFormPost({ ...formPost, title: e.target.value })
             }
           />
           <small id="helpId" className="form-text text-muted">
@@ -54,10 +54,8 @@ export default function FormPost({ formSubmit, setFormSubmit }) {
             name="post"
             rows="3"
             placeholder="Type here..."
-            value={formSubmit.post}
-            onChange={(e) =>
-              setFormSubmit({ ...formSubmit, post: e.target.value })
-            }
+            value={formPost.post}
+            onChange={(e) => setFormPost({ ...formPost, post: e.target.value })}
           ></textarea>
         </div>
         {/* end of imput section  */}
